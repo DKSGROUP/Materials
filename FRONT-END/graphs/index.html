@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+</head>
+<body>
+	
+
+	<section>
+
+        <!--    <div class="row">
+                <div class="col-md-8">
+                	<div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+
+	                	<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+	                		<div style="position:absolute;width:1000000px;height:100px;left:0;top:0"></div>
+	                	</div>
+                		<div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                			<div style="position:absolute;width:200%;height:10%;left:0; top:0"></div>
+                		</div>
+                	</div>-->
+
+                    <canvas id="lineChart" style="display: block; height: 150px;"  class="chartjs-render-monitor"></canvas>
+
+          <!--      </div>
+            </div>
+-->
+        </section>
+
+        <script>
+        	
+var ctxL = document.getElementById("lineChart").getContext('2d');
+//var gradientFill = ctx.createLinearGradient(500, 0, 100, 0);
+//gradientFill.addColorStop(0, "rgba(128, 182, 244, 0.6)");
+
+//gradientFill.addColorStop(1, "rgba(244, 144, 128, 0.6)");
+
+var gradientFill = ctxL.createLinearGradient(0, 800, 0, 100);
+gradientFill.addColorStop(1, "rgba(25, 99, 16, 0.6)");
+gradientFill.addColorStop(0, "rgba(255, 255,255, 0.6)");
+
+
+
+var gradientFill1 = ctxL.createLinearGradient(0, 800, 0, 100);
+gradientFill1.addColorStop(1, "rgba(71, 186, 0, 0.6)");
+gradientFill1.addColorStop(0, "rgba(255, 255,255, 0.6)");
+
+
+var myLineChart = new Chart(ctxL, {
+    type: 'line',
+    data: {
+        labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+        scaleLabel: false,
+        datasets: [
+            {
+                label: "Bitcoin",
+                fillColor: "rgba(25, 99, 16, 1.2)",
+                strokeColor: "rgba(25, 99, 16 ,1)",
+                pointColor: "rgba(25, 99, 16 ,1)",
+                pointStrokeColor: "#196310",
+                pointHighlightFill: "#196310",
+                pointHighlightStroke: "rgba(25, 99, 16,1)",
+                data: [65, 59, 80, 81, 56, 55, 40,15, 85,95],
+                pointHoverBackgroundColor: '#196310',
+                pointHoverBorderColor: "rgba(25, 99, 16,1)",
+                /*backgroundColor: [
+                //gradientFill
+                'rgba(25, 99, 16, 0.2)'
+            	],*/
+            	backgroundColor: gradientFill,
+            	borderColor: [
+                'rgba(25,99,16,1)'
+            	],
+            	borderWidth: 1
+            },
+            {
+                label: "Etherium",
+                fillColor: "rgba(198,3,16,0.2)",
+                strokeColor: "rgba(198,3,16,1)",
+                pointColor: "rgba(198,3,16,1)",
+                pointStrokeColor: "#47ba00",
+                pointHighlightFill: "#47ba00",
+                pointHighlightStroke: "rgba(198,3,16,1)",
+                data: [1, 4, 40, 19, 86, 7, 90,85,66,8],
+                pointHoverBackgroundColor: '#47ba00',
+                pointHoverBorderColor: "rgba(71, 186, 0,1)",
+                borderColor: 0,                
+            	backgroundColor: gradientFill1,
+            	borderColor: [
+                'rgba(71, 186, 0,1)'
+            	],
+            	borderWidth: 1
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+    xAxes: [{
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
+            }],
+    yAxes: [{
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }   
+            }]
+    },
+    legend: {
+            display: false
+         },
+         tooltips: {
+            enabled: false
+         }
+    },
+    scaleLabel: {
+    	display: false
+    }
+
+});
+            
+        </script>
+</body>
+</html>
