@@ -29,7 +29,12 @@ var myLineChart = new Chart(ctxL, {
         ]
     },
     options: {
-        responsive: true
+        responsive: true,
+        yAxes: [{
+                ticks: {
+                  display: false
+              }
+          }]
     }    
 });
             
